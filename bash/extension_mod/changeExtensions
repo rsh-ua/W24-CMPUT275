@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# For practice consider modifying this script
+# to take in two arguments and change all extension from arg1 to arg2
+
+# Before practice changes this script is going to
+# change all files in the cwd with extension .cpp 
+# to extension .cc
+
+for fname in *.cpp; do
+  mv $fname ${fname%cpp}cc
+done
