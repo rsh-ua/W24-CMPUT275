@@ -1,0 +1,9 @@
+This test is going to fail on purpose
+It's actually an error in the test output file
+But it's just to demonstrate what should happen
+in your script when the outputs don't match.
+
+In real test sets your output files should be
+the correct outputs for the input, so a 
+difference would indicate a bug in the program
+you're testing!
