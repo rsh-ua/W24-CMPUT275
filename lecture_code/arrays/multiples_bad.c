@@ -5,6 +5,9 @@ int *multiples(int n) {
   for (int i = 0; i < 4; ++i) {
     arr[i] = (i+1)*n;
   }
+  // Bad! Returning pointer to local stack
+  // data, that data is deallocated when this
+  // function returns. Undefined behaviour!
   return arr;
 }
 
