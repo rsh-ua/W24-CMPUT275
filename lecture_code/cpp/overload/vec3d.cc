@@ -31,14 +31,26 @@ int operator*(Vec3D lhs, Vec3D rhs) {
   return lhs.x*rhs.x + lhs.y*rhs.y + lhs.z*rhs.z;
 }
 
+ostream &operator<<(ostream &out, const Vec3D &v) {
+  return out << "[" << v.x << ", " << v.y << ", " << v.z << "]";
+}
+
+istream &operator>>(istream &in, Vec3D &v) {
+  return in >> v.x >> v.y >> v.z;
+}
+
 int main() {
   Vec3D v;
   v.x = 1; v.y = 2; v.z = 3;
   Vec3D q = v*5;
-  cout << q.x << " " << q.y << " " << q.z << endl;
+  cout << q << endl;
   Vec3D p = 2*q;
-  cout << p.x << " " << p.y << " " << p.z << endl;
+  cout << p << endl;
   p = p+v;
-  cout << p.x << " " << p.y << " " << p.z << endl;
+  cout << p << endl;
   cout << q*p << endl;
+  Vec3D x;
+  cout << "Give me a Vec3D: ";
+  cin >> x;
+  cout << 5*x << endl;
 }
