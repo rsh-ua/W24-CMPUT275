@@ -14,14 +14,19 @@ List createN(int n) {
 int main() {
   List l;
   l.addToFront(1).addToFront(2).addToFront(3).addToFront(4);
-  // list is now: 3 2 1
+  // list l is now: 4 3 2 1
+  List p = l;
+  // p also now 4 3 2 1
+  // List p{l};
+  // List p(l);
+  // All the same, all initializing p with l
+  l.setIth(0, 10);
   cout << l << endl;
+  cout << p << endl;
   List q;
   q.addToFront(10).addToFront(9).addToFront(8);
   cout << q << endl;
-  int n;
-  cin >> n;
-  if (n > 0) {
+  {
     List copy = q;
     // Equivalently
     // List copy{q};

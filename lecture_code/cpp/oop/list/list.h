@@ -6,6 +6,7 @@ class List {
     int data;
     Node * next;
     Node(int, Node *);
+    Node(const Node &);
     ~Node();
   };
   Node *theHead;
@@ -17,6 +18,9 @@ class List {
   // is destroyed - for stack based objects when they go out of scope
   // and for heap objects when delete is called on them
   ~List();
+  // Copy Ctor
+  List(const List &);
+  void setIth(int i, int val);
   friend std::ostream& operator<<(std::ostream &out, const List &l);
 };
 
