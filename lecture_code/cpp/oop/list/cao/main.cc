@@ -16,6 +16,7 @@ int main() {
   l.addToFront(1).addToFront(2).addToFront(3).addToFront(4);
   // list l is now: 4 3 2 1
   List p = l;
+  // p is copy constructed from l
   // p also now 4 3 2 1
   // List p{l};
   // List p(l);
@@ -23,6 +24,18 @@ int main() {
   l.setIth(0, 10);
   cout << l << endl;
   cout << p << endl;
+  List t; // Default ctor
+  t.addToFront(9).addToFront(8);
+  cout << "t before copy assigning to l: " << t << endl;
+  t = l;
+  cout << "t after copy assigning to l: " << t << endl;
+  t.setIth(0,-1);
+  cout << "t is copy assigned from l" << endl;
+  cout << "t after setting 0th to -1: " << t << endl;
+  cout << "l after setting t's 0th to -1: " << l << endl;
+  t = t;
+  cout << t << endl;
+  /*
   List q;
   q.addToFront(10).addToFront(9).addToFront(8);
   cout << q << endl;
@@ -36,4 +49,5 @@ int main() {
   // But copy was a SHALLOW COPY of q, so that means its also
   // freed q's nodes. How to fix
   cout << q << endl;
+  */
 }

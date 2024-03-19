@@ -1,6 +1,8 @@
 #include "list.h"
 #include <iostream>
+#include <utility>
 using namespace std;
+
 
 List::List() : theHead{nullptr}, len{0} {}
 List &List::addToFront(int x) {
@@ -9,12 +11,26 @@ List &List::addToFront(int x) {
   return *this;
 }
 
+void List::swap(List &o) {
+  std::swap(theHead, o.theHead);
+  // Non copying swap!
+  std::swap(len, o.len);
+  // I am swapped with other
+}
+
 List::~List() {
   delete theHead;
 }
 
 List::List(const List &o) : theHead{o.theHead ? new Node{*o.theHead} : nullptr},
   len{o.len} {}
+
+List &List::operator=(const List &rhs) {
+  // *this is the left hand operand implicitly
+  List tmp{rhs}; // Copy construct a local List
+  swap(tmp);
+  return *this;
+}
 
 List::Node::Node(int data, Node *next) : data{data}, next{next} {}
 List::Node::~Node() {

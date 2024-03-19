@@ -1,6 +1,10 @@
 
 #include <iostream>
 
+struct Node {
+  int x, y;
+};
+
 class List {
   struct Node {
     int data;
